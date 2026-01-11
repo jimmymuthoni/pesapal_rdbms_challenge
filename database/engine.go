@@ -6,10 +6,12 @@ import (
 	"os"
 )
 
+var CurrentDM = "default"
 var Schemas = make(map[string]TableSchema)
 
 // loading schema
 func LoadSchemas(){
+	os.MkdirAll("data/default", 0755)
 	file, err := os.ReadFile("schemas.json")
 	if err != nil {
 		return 
