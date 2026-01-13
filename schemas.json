@@ -1,32 +1,47 @@
 {
- "user_db": {
-  "name": "user_db",
-  "columns": [
-   {
-    "name": "id",
-    "type": "INT"
-   },
-   {
-    "name": "name",
-    "type": "INT"
-   }
-  ],
-  "primary_key": "id",
-  "unique_keys": {}
- },
- "users": {
-  "name": "users",
-  "columns": [
-   {
-    "name": "id",
-    "type": "INT"
-   },
-   {
-    "name": "name",
-    "type": "INT"
-   }
-  ],
-  "primary_key": "id",
-  "unique_keys": {}
- }
+  "user_db": {
+    "name": "user_db",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INT"
+      },
+      {
+        "name": "name",
+        "type": "INT"
+      }
+    ],
+    "primary_key": "id",
+    "unique_keys": {}
+  },
+  "user_info": {
+    "name": "user_info",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INT"
+      },
+      {
+        "name": "name",
+        "type": "TEXT"
+      }
+    ],
+    "primary_key": "id",
+    "unique_keys": {}
+  },
+  "users": {
+    "name": "users",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INT"
+      },
+      {
+        "name": "name",
+        "type": "TEXT"
+      }
+    ],
+    "primary_key": "id",
+    "unique_keys": {}
+  }
 }
