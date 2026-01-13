@@ -25,7 +25,8 @@ func InsertRow(table string, row map[string]interface{}) error {
 
 //function to read all rows in a table
 func ReadAllRows(table string) ([]map[string]interface{}, error){
-	file, err := os.Open("data/"+table+".tbl")
+	path := "data/" + CurrentDB + "/" + table + ".tbl"
+	file, err := os.Open(path)
 	if err != nil {
 		return nil, err
 	}
