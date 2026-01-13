@@ -36,7 +36,7 @@ func main(){
 	http.HandleFunc("/users", userHandler)
 	http.HandleFunc("/users/",userByIDHandler)
 
-	log.Println("Trival web app to interact with custom RDBMS..")
+	log.Println("Trival web app running on 8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
