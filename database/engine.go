@@ -80,7 +80,7 @@ func ShowTables() ([]string, error){
 }
 
 //update funtionality 
-func update(table string, id int, field string, value interface{}) error {
+func Update(table string, id int, field string, value interface{}) error {
 	rows,err := ReadAllRows(table)
 	if err != nil {
 		return err
@@ -110,7 +110,7 @@ func Delete(table string, id int) error {
 
 
 // join functionality
-func join(left, right, leftKey, rightKey string) ([]map[string]interface{}, error){
+func Join(left, right, leftKey, rightKey string) ([]map[string]interface{}, error){
 	lrows, _ := ReadAllRows(left)
 	rrows, _ := ReadAllRows(right)
 
