@@ -62,7 +62,7 @@ func CreateTable(schema TableSchema){
 }
 
 
-//showing the tables avaiable in database
+//showing the tables functionality
 func ShowTables() ([]string, error){
 	path := "data/"+CurrentDB
 	files, err := os.ReadDir(path)
@@ -79,7 +79,7 @@ func ShowTables() ([]string, error){
 	return tables, nil
 }
 
-//update table -> funtionality 
+//update funtionality 
 func update(table string, id int, field string, value interface{}) error {
 	rows,err := ReadAllRows(table)
 	if err != nil {
@@ -110,7 +110,30 @@ func Delete(table string, id int) error {
 
 
 // join functionality
+func join(left, right, leftKey, rightKey string) ([]map[string]interface{}, error){
+	lrows, _ := ReadAllRows(left)
+	rrows, _ := ReadAllRows(right)
 
+	 var result[]map[string]interface{}
+	for _, l := range lrows{
+		for _, r := range rrows {
+			if l[leftKey] == r[rightKey] {
+			row := make(map[string]interface{})
+			for k, v := range l {
+				row[left+"."+k] = v
+			}
+			for k, v := range r {
+				row[right+"."+k] = v
+			}
+			result = append(result, row)
+			}
+		}
+	}
+	return result,nil
+}
+
+
+// inserting data into the table functionality
 func Insert(table string, row map[string]interface{}) error {
 	schema := Schemas[table]
 
@@ -123,6 +146,7 @@ func Insert(table string, row map[string]interface{}) error {
 	return InsertRow(table, row)
 }
 
+//functionality to select * from the table
 func SelectAll(table string) ([]map[string]interface{}, error){
 	return ReadAllRows(table)
 }
