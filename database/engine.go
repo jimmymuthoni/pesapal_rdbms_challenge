@@ -93,6 +93,23 @@ func update(table string, id int, field string, value interface{}) error {
 	return RewriteTable(table, rows)
 }
 
+// delete functionality
+func Delete(table string, id int) error {
+	rows, err := ReadAllRows(table)
+	if err != nil {
+		return  err
+	}
+	var updated []map[string]interface{}
+	for _, row := range rows{
+		if int(row["id"].(float64)) != id {
+			updated = append(updated, row)
+		}
+	}
+	return RewriteTable(table, updated)
+}
+
+
+// join functionality
 
 func Insert(table string, row map[string]interface{}) error {
 	schema := Schemas[table]
