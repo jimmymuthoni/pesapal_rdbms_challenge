@@ -79,6 +79,20 @@ func ShowTables() ([]string, error){
 	return tables, nil
 }
 
+//update table -> funtionality 
+func update(table string, id int, field string, value interface{}) error {
+	rows,err := ReadAllRows(table)
+	if err != nil {
+		return err
+	}
+	for _, row := range rows {
+		if int(row["id"].(float64)) == id{
+			row[field] = value
+		}
+	}
+	return RewriteTable(table, rows)
+}
+
 
 func Insert(table string, row map[string]interface{}) error {
 	schema := Schemas[table]
