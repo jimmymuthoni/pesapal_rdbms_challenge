@@ -1,0 +1,32 @@
+{
+ "user_db": {
+  "name": "user_db",
+  "columns": [
+   {
+    "name": "id",
+    "type": "INT"
+   },
+   {
+    "name": "name",
+    "type": "INT"
+   }
+  ],
+  "primary_key": "id",
+  "unique_keys": {}
+ },
+ "users": {
+  "name": "users",
+  "columns": [
+   {
+    "name": "id",
+    "type": "INT"
+   },
+   {
+    "name": "name",
+    "type": "INT"
+   }
+  ],
+  "primary_key": "id",
+  "unique_keys": {}
+ }
+}
